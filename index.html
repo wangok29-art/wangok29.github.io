@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISYOU影刀自动化工程师工作月报</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f5ff 0%, #e4edf5 100%);
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 0.3s;
+            position: relative;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        header {
+            background: linear-gradient(to right, #1a6dcc, #0d4a9e);
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><path d="M0,0 L100,100 M-20,20 L20,40 M80,0 L120,20" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-weight: 300;
+            animation: fadeIn 0.8s ease-in-out 0.2s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .report-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.8s ease-in-out 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+        }
+        
+        .info-item i {
+            font-size: 1.3rem;
+        }
+        
+        .section {
+            padding: 40px 50px;
+            border-bottom: 1px solid #f0f4f9;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #0d4a9e;
+            margin-bottom: 35px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #1a6dcc, #0d4a9e);
+            border-radius: 2px;
+        }
+        
+        .section-title i {
+            background: #e6f0ff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 10px rgba(26, 109, 204, 0.15);
+        }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .metric-card {
+            background: #f8fafd;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid #1a6dcc;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(26, 109, 204, 0.15);
+        }
+        
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 109, 204, 0.03) 0%, transparent 100%);
+            z-index: 0;
+        }
+        
+        .metric-title {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 12px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .metric-value {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #1a6dcc;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .metric-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 5px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.5;
+        }
+        
+        .project {
+            background: #f9fbfe;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #e1e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 109, 204, 0.1);
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1a3e78;
+        }
+        
+        .project-status {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .status-completed {
+            background: linear-gradient(to right, #0a8f5e, #06c281);
+            color: white;
+        }
+        
+        .status-ongoing {
+            background: linear-gradient(to right, #d48806, #ffb300);
+            color: white;
+        }
+        
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .detail-item {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #555;
+            min-width: 100px;
+            font-size: 1.05rem;
+        }
+        
+        .progress-container {
+            margin: 25px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: #e0e7f3;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #1a6dcc, #0d4a9e);
+            border-radius: 6px;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .benefits {
+            background: linear-gradient(to right, rgba(26, 109, 204, 0.05), rgba(13, 74, 158, 0.03));
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px dashed #1a6dcc;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .benefits-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a3e78;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateX(5px);
+        }
+        
+        .benefit-item i {
+            color: #1a6dcc;
+            margin-top: 5px;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        
+        .issues-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .issues-table th {
+            background: linear-gradient(to right, #1a6dcc, #0d4a9e);
+            text-align: left;
+            padding: 15px 20px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .issues-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .issues-table tr {
+            transition: all 0.3s ease;
+        }
+        
+        .issues-table tr:hover {
+            background-color: #f0f7ff;
+        }
+        
+        .issues-table tr:hover td {
+            transform: translateX(5px);
+        }
+        
+        .issues-table tr:nth-child(even) {
+            background: #f9fbfe;
+        }
+        
+        .priority-high {
+            color: #ff4d4f;
+            font-weight: 700;
+        }
+        
+        .priority-medium {
+            color: #fa8c16;
+            font-weight: 700;
+        }
+        
+        .next-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .step {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #f8fafd;
+            align-items: flex-start;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            border-left: 4px solid #1a6dcc;
+        }
+        
+        .step:hover {
+            transform: translateX(10px);
+            background: linear-gradient(to right, #f8fafd, #edf4ff);
+        }
+        
+        .step-number {
+            background: linear-gradient(to bottom right, #1a6dcc, #0d4a9e);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(26, 109, 204, 0.3);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a3e78;
+            font-size: 1.2rem;
+        }
+        
+        .signature {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px dashed #dde6f0;
+        }
+        
+        .signature-box {
+            text-align: center;
+            padding: 20px 40px;
+            background: #f8fafd;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .signature-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #1a6dcc, #0d4a9e);
+        }
+        
+        .signature-label {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #1a6dcc;
+            font-size: 1.2rem;
+        }
+        
+        .summary {
+            background: linear-gradient(to right, #f0f7ff, #e6f0ff);
+            border-radius: 12px;
+            padding: 35px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, #1a6dcc, #0d4a9e);
+        }
+        
+        .summary-title {
+            font-size: 1.5rem;
+            color: #1a3e78;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .summary-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #1a6dcc, #0d4a9e);
+            border-radius: 3px;
+        }
+        
+        .summary-content {
+            line-height: 1.8;
+            font-size: 1.15rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .summary-content p {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .summary-content p::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #1a6dcc;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .chart-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .chart-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1a3e78;
+            font-weight: 600;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 1rem;
+            background: linear-gradient(to right, #f0f5ff, #e6f0ff);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                margin: 10px auto;
+            }
+            
+            header {
+                padding: 30px 25px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .info-item {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .project-details {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-bg"></div>
+            <div class="header-content">
+                <h1>ISYOU影刀自动化工程师工作成果月报</h1>
+                <div class="subtitle">自动化流程优化与效率提升工作成果汇总</div>
+                
+                <div class="report-info">
+                    <div class="info-item">
+                        <i class="far fa-user"></i>
+                        <span>报告人：汪兴 | 所属主管：陈璐娅</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>报告周期：2025年8月1日 - 2025年8月31日</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-file-alt"></i>
+                        <span>报告日期：2025年8月31日</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="section" id="kpi-section">
+            <div class="section-title">
+                <i class="fas fa-chart-line"></i>
+                <h2>关键绩效指标</h2>
+            </div>
+            
+            <!-- <div class="chart-container">
+                <div class="chart-card">
+                    <div class="chart-title">粤豪上架图包占比（全平台总数：1600套）</div>
+                    <canvas id="automationChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-title">天猫及拼多多平台上架SPU</div>
+                    <canvas id="hoursChart"></canvas>
+                </div>
+            </div> -->
+            
+            <div class="metrics">
+               
+                
+                <div class="metric-card">
+                    <div class="metric-title">唯品会SPU上架</div>
+                    <div class="metric-value">500个</div>
+                    <div class="metric-desc">人工上架一个3~5min，自动化程序上架50个(单SKU)大概耗时50~60min平均1~2min一个</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-title">中珠得物SPU上架</div>
+                    <div class="metric-value">500个</div>
+                    <div class="metric-desc">人工上架一个4~6min，自动化程序上架(单SKU)大概耗时2~3min一个</div>
+                </div>
+
+                <!-- <div class="metric-card">
+                    <div class="metric-title">拼多多上架SPU</div>
+                    <div class="metric-value">640</div>
+                    <div class="metric-desc">中国黄金占320条</div>
+                    <div class="metric-desc">中国珠宝占320条</div>
+                    <div class="metric-desc">数据准确性95%</div>
+                </div> -->
+
+                <!-- <div class="metric-card">
+                    <div class="metric-title">唯品会生成上架图包数量</div>
+                    <div class="metric-value">1600套</div>
+                    <div class="metric-desc">拼多多中金320，拼多多中珠320</div>
+                    <div class="metric-desc">天猫中金320，天猫中珠320</div>
+                    <div class="metric-desc">得物中珠320</div>
+                </div> -->
+            </div>
+        </div>
+        
+        <div class="section" id="projects-section">
+            <div class="section-title">
+                <i class="fas fa-tasks"></i>
+                <h2>主要工作任务进度</h2>
+            </div>
+            
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">唯品会商品上架</div>
+                    <div class="project-status status-completed">100%</div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序版本：W2  </span>
+                        <span> 发布时间：2025.8.25</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>RPA+ Excel + Python</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>根据上架任务安排执行频率</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 优化及调整：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>添加多SKU模块通过标准Excel模板一次性读取并处理包含多个SKU（颜色、尺码、规格等）的商品数据。</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>重构了图片上传流程，采用异步并发上传技术替代传统的线性单张上传模式。</span>
+                    </div>
+                     <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>新版本将唯品会复杂的多级分类集成到一个统一的智能选择组件中</span>
+                    </div>
+                     <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>在程序读取并执行表格数据之前，新增数据校验。会自动检查必备字段是否填写、数据类型是否正确（如价格是否为数字）、格式是否规范（如SKU编码是否符合约定）、以及图片大小等。</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">中珠得物商品上架</div>
+                    <div class="project-status status-completed">100%</div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序版本：  W2  </span>
+                        <span>发布时间：2025.8.20</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>RPA + JS + Excel</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>根据上架任务执行</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 优化及调整：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>重构程序内的尺码映射库。新的尺码表与得物官方标准保持实时同步，支持更多细分品类和特殊尺码标准。</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>优化多SKU批量上架的底层逻辑，使其处理更稳定、速度更快。</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>针对得物近期推出的AI发品功能，进行了全面的逆向分析与逻辑重构。程序不与AI推荐流程冲突，能够智能识别并适应AI发品的交互界面和数据填充方式。优化后的逻辑可以无缝接入AI发品流程，自动填写AI生成后的表单字段，或在不适合时智能切换回传统发品模式。</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>新增已上传图片的合规性预检功能。在上架前，程序会调用图像识别算法，对主图、详情图关键图片进行扫描，识别可能触发平台审核的潜在违规元素</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">自动生成唯品会上架表格</div>
+                    <div class="project-status status-completed">100%</div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序版本： W1 </span>
+                        <span>发布时间：2025.8.18</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>RPA + Excel + VBA</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>根据上架任务执行</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>导入已有的天猫、得物等平台的商品数据表格自动识别源字段并将其精准匹配并转换为唯品会平台所需的对应字段</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>原本耗费至少1小时的繁琐手工制表，压缩至2分钟内自动完成，100%准确率完全规避了人工复制粘贴可能带来的各种错误</span>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">唯品会完整图包提取</div>
+                    <div class="project-status status-completed">100%</div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序版本：W1  </span>
+                        <span>发布时间：2025.8.20</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>RPA + PS +JSX </span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>根据上架任务执行</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益预估：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>集成了图像识别、批量裁剪、尺寸缩放、格式转换、画质优化等全套功能。只需指定原始图包文件夹</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>替代了人工在Photoshop中的重复操作，图包的标准化，实际测试，生成50个商品的标准图包5到7分钟即可完成</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">黄金结算表跨月同步</div>
+                    <div class="project-status status-completed">100%</div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序版本：W1 </span>
+                        <span>发布时间：2025.8.10</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>RPA + Excel + Python</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>定时自动执行</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益预估：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>解决了成本表格无法跨月同步，统一关联到数据库在处理，定时自动触发程序推送文件到钉钉群</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">唯一码提取自动化流程</div>
+                    <div class="project-status status-ongoing">待进行</div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序待开发</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>RPA + 根据任务评估</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>根据任务评估</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="0"></div>
+                    </div>
+                </div>
+                
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益预估：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>需核对程序流程评估</span>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+            
+        
+        <div class="section" id="issues-section">
+            <div class="section-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h2>问题与解决方案</h2>
+            </div>
+            
+            <table class="issues-table">
+                <thead>
+                    <tr>
+                        <th>问题描述</th>
+                        <th>影响范围</th>
+                        <th>解决方案</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>得物上架页面官方灰度更新中</td>
+                        <td class="priority-high">导致流程中断</td>
+                        <td>更新程序分类模块</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td>程序操作人员对流程不熟悉</td>
+                        <td class="priority-medium">突发状况不能及时解决</td>
+                        <td>撰写流程使用文档/td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section" id="plan-section">
+            <div class="section-title">
+                <i class="fas fa-road"></i>
+                <h2>后续工作计划</h2>
+            </div>
+            
+            <div class="next-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">继续跟进部门自动化程序</div>
+                        <div>对接各部门需求继续开发，迭代跟进内部已开发自动化程序，解决日常程序运行中所产生问题。</div>
+                        
+                    </div>
+                </div>
+                
+                
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">针对日常工作中产生的问题定点解决</div>
+                        <div>部门人员工作中所产生的大量且繁琐的任务，搭建钉钉知识库内部SOP</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section" id="summary-section">
+            <!-- <div class="section-title">
+                <i class="fas fa-file-signature"></i>
+                <h2>总结与概述</h2>
+            </div>
+            
+            <div class="summary">
+                <div class="summary-title">本月工作概述（根据后续任务持续性优化）</div>
+                <div class="summary-content">
+                  
+                    <p>从官方开发者社区掌握新技术，重构并优化自动上架商品主流程实现天猫上架提速&nbsp;70%&nbsp;利用闲时以及私有时间发文作答提升开发者等级，可增加官方权重并获取最新技术与内测名额</p>
+                </div>
+            </div>
+             -->
+            <div class="signature">
+                <div class="signature-box">
+                    <div class="signature-label">汪兴 | 影刀自动化工程师</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 ISYOU | 本报告数据仅用于内部工作汇报</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // 处理该section内的所有进度条
+                        const progressFills = entry.target.querySelectorAll('.progress-fill[data-width]');
+                        progressFills.forEach(progressFill => {
+                            const width = progressFill.getAttribute('data-width');
+                            // 确保动画只执行一次
+                            if (!progressFill.classList.contains('animated')) {
+                                progressFill.style.width = width + '%';
+                                progressFill.classList.add('animated');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // 初始化图表
+            initCharts();
+        });
+        
+        // 图表初始化
+        function initCharts() {
+            // 自动化流程分布图
+            const automationCtx = document.getElementById('automationChart').getContext('2d');
+            new Chart(automationCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['未上架', '已上架 [天猫(中金，中珠)，拼多多(中金，中珠)]'],
+                    datasets: [{
+                        data: [1200, 400],
+                        backgroundColor: ['#1a6dcc', '#0d4a9e'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        title: {
+                            display: false
+                        }
+                    },
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true
+                    }
+                }
+            });
+            
+            // 工时节省趋势图
+            const hoursCtx = document.getElementById('hoursChart').getContext('2d');
+            new Chart(hoursCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['天猫中国黄金', '天猫中国珠宝','拼多多中国黄金', '拼多多中国珠宝'],
+                    datasets: [{
+                        data: [100, 100, 100, 100],
+                        backgroundColor: ['#1a6dcc', '#0d4a9e', '#C71585', '#DDA0DD'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        title: {
+                            display: false
+                        }
+                    },
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
