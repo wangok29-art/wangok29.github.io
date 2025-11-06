@@ -669,21 +669,21 @@
                     </div>
                     <div class="info-item">
                         <i class="far fa-calendar-alt"></i>
-                        <span>报告周期：2025年9月1日 - 2025年9月30日</span>
+                        <span>报告周期：2025年10月1日 - 2025年10月31日</span>
                     </div>
                     <div class="info-item">
                         <i class="far fa-file-alt"></i>
-                        <span>报告日期：2025年9月30日</span>
+                        <span>报告日期：2025年10月31日</span>
                     </div>
                 </div>
             </div>
         </header>
         
-        <div class="section" id="kpi-section">
+        <!-- <div class="section" id="kpi-section">
             <div class="section-title">
                 <i class="fas fa-chart-line"></i>
                 <h2>关键绩效指标</h2>
-            </div>
+            </div> -->
             
             <!-- <div class="chart-container">
                 <div class="chart-card">
@@ -696,14 +696,14 @@
                 </div>
             </div> -->
             
-            <div class="metrics">
+            <!-- <div class="metrics"> -->
                
                 
-                <div class="metric-card">
-                    <div class="metric-title">供应链需求</div>
-                    <div class="metric-value">12/12个</div>
+                <!-- <div class="metric-card"> -->
+                    <!-- <div class="metric-title">供应链需求</div>
+                    <div class="metric-value">12/12个</div> -->
                     <!-- <div class="metric-desc">人工上架一个3~5min，自动化程序上架50个(单SKU)大概耗时50~60min平均1~2min一个</div> -->
-                </div>
+                <!-- </div> -->
 
                 <!-- <div class="metric-card">
                     <div class="metric-title">中珠得物SPU上架</div>
@@ -726,8 +726,8 @@
                     <div class="metric-desc">天猫中金320，天猫中珠320</div>
                     <div class="metric-desc">得物中珠320</div>
                 </div> -->
-            </div>
-        </div>
+            <!-- </div> -->
+        <!-- </div> -->
         
         <div class="section" id="projects-section">
             <div class="section-title">
@@ -737,14 +737,14 @@
             
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">ERP (唯一码克重/未上传检测网/加工费/一口价) 数据异常维护</div>
+                    <div class="project-title">ERP 原材料单价异常维护</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：W1  </span>
-                        <span> 发布时间：2025.9.12</span>
+                        <span> 发布时间：2025.10.15</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
@@ -771,46 +771,28 @@
                     
                      <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>针对ERP中的唯一码、克重、未上传检测网、加工费、一口价这四项关键数据进行每日定时扫描、分类排查与智能预警，发现异常数据系统会自动生成预警报告，并通过钉钉机器人精准发送至对应的数据负责人。报告明确列出异常数量、异常类型，实现“一事一报，责任到人”。</span>
+                        <span>针对ERP中的唯一码数据不是固定价格并且原材料单价为空有仓位的异常数据进行反馈（每天早上9点触发）。</span>
                     </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>每个排查模块都能在准确的数据子集上运行，原本需要人工耗时数小时的数据核对，实现至系统自动完成，效率提升超过99%。</span>
-                    </div>
-                     <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>【唯一码克重产品异常维护】每日早上11点-从颜色规格提取产品重量区间，修正 ±0.03g(足金/18K/铂金和银饰修正逻辑相同，只是容差从 ±0.03g 改成 ±1g)，异常数据判定条件：产品重量没有在修正区间并且有仓位数据的。</span>
-                    </div>
-                     <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>【二维码未上传异常产品维护】每日早上9点-异常数据判定条件：二次编码为空或0并且有仓位数据的。</span>
-                    </div>
-                     <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>【足金、K金、铂金无工费数据维护】每日早上10点-异常数据判定条件：加工费单价，附加费为空或0并且有仓位数据的，三个条件同时满足为异常数据。</span>
-                    </div>
-                     <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>【银饰、铂金、玉石、手表单价维护】每日早上10点-异常数据判定条件：单价为空或0并且有仓位数据的。</span>
-                    </div>
+                   
+                
                 </div>
                 
             </div>
             
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">ERP 采购入库48h未调拨单</div>
+                    <div class="project-title">ERP 小豪/找金订单取货提醒</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：  W1  </span>
-                        <span>发布时间：2025.9.26</span>
+                        <span>发布时间：2025.10.17</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>RPA + Excel</span>
+                        <span>RPA + Python</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
@@ -832,17 +814,7 @@
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>每天下午18:00自动巡检ERP系统中的采购单状态，并对超过48小时未完成送货的订单进行精准识别与预警，对于已超时采购单通过钉钉通知至对应的数据负责人。
-                            <div class="price-rules">
-  <h3>巡检规则</h3>
-  <p>示例：</p>
-  <ul>
-    <li>
-所有在 23号 18:00 之前 的采购单，都被视为超时。
-在 23号 18:00 之后（含） 的采购单，则不超时。</li>
-  </ul>
-  
-</div>
+                        <span>通过ERP系统实时获取新进入的订单数据。捕获关键信息：产品图片、标签、唯一编码、规格、重量、圈口等必要属性，(上午 11:30 下午 16:00 17:00)推送到钉钉群提醒取货。
                         </span>
                     </div>
                    
@@ -852,18 +824,18 @@
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">ERP 证签材质款式名生成工具</div>
+                    <div class="project-title">图片批量上传到天猫素材空间</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
-                        <span class="detail-label">程序版本： W2 </span>
-                        <span>发布时间：2025.9.18</span>
+                        <span class="detail-label">程序版本： W1 </span>
+                        <span>发布时间：2025.10.28</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>RPA + AI模型 </span>
+                        <span>RPA + Python </span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
@@ -885,23 +857,69 @@
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>通过已有产品库训练大模型，识别字段提炼证签材质款式名，替代人工查找填写。</span>
+                        <span>选定包含图片的本地文件夹，多线程并发上传到素材空间，同时自动在空间创建存储的文件夹。</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>上传完成后生成上传报告列出上传成功与失败原因，原耗费至少2小时的人工上传，压缩至30分钟内自动完成。</span>
+                    </div>
+                    
+                    
+                   
+                </div>
+            </div>
+             <div class="project">
+                <div class="project-header">
+                    <div class="project-title">批量下架天猫指定库存数商品</div>
+                    <div class="project-status status-completed">100%</div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序版本： W1 </span>
+                        <span>发布时间：2025.10.30</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>RPA + Python </span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>按需执行</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>表格导入一批指定的宝贝ID对于每一个（或每一组）ID，独立设置SKU库存下架条件，检测到某个商品的库存满足其预设条件，触发下架操作。</span>
                     </div>
                     
                    
                 </div>
             </div>
-
+            
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">EPR (成本价/重量/市场吊牌价/产品工期/检测依据) 智能更新</div>
+                    <div class="project-title">ERP 维护Au99.99字段</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：W1  </span>
-                        <span>发布时间：2025.9.28</span>
+                        <span>发布时间：2025.10.18</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
@@ -924,367 +942,30 @@
                 </div>
                 
                 <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益预估：</div>
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>扫描并识别ERP中新增的或未规范的商品资料通过预设规则，对杂乱、重复或格式不一的原始数据进行标准化清洗与格式化。</span>
+                        <span>针对ERP中的商品数据缺少Au99.99字段进行维护更新（每天凌晨4点30触发）</span>
                     </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>【市场吊牌价】每日凌晨0点30分更新-从商品资料字段颜色规格提取最大克重，足金按克重不同对应克价计算，银饰按一口价计算 。
-                             <!-- <p>金镶玉/锆：重量≤ 0.5/3988，0.5 < 重量 ≤ 1.0/3288，1.0 < 重量 ≤ 2.0/2988，重量 > 2.0/2588。
-                                <br>足金编绳款(颈绳/手绳/串珠)：重量≤ 0.5/2500，0.5 < 重量 ≤ 1.0/2200，1.0 < 重量 ≤ 2.0/2000，重量 > 2.0/1800。
-                                <br>足金素金：重量≤ 0.5/2200，0.5 < 重量 ≤ 1.0/2000，1.0 < 重量 ≤ 2.0/一口价1800，重量 > 2.0/一口价1600。
-                                <br>普通银类：挂坠/588，项链和套链/699，戒指/588，手饰(手绳/手链/手串)/599,耳饰（耳环/耳钉）/388，脚链/698，发饰（发夹）/899。
-                                <br>银手镯类：1 ≤ 克重 ≤ 15/428，15 < 克重 ≤ 20/568，20 < 克重 ≤ 30/848，30 < 克重 ≤ 100/1128。
-                                <br>银玉石类（翡翠、和田玉、碧玉、玉髓、白玉髓）：挂坠/999，项链/1199，/手饰（手串/手绳）/1299，手链/1099，戒指/1699，耳钉/1399，手镯/1399
-                             </p> -->
-                             <style>
-  .price-rules {
-    font-family: "Microsoft Yahei", sans-serif;
-    color: #333;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 30px auto;
-    background: #fafafa;
-    padding: 28px 36px;
-    border-radius: 16px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-    border-left: 6px solid #1e88e5;
-  }
+                  
 
-  .price-rules h3 {
-    font-size: 20px;
-    color: #1e88e5;
-    margin-bottom: 16px;
-    text-align: center;
-    letter-spacing: 1px;
-  }
-
-  .price-rules p {
-    margin-top: 18px;
-    margin-bottom: 6px;
-    font-weight: bold;
-    font-size: 15px;
-    color: #1976d2;
-  }
-
-  .price-rules ul {
-    margin: 0 0 8px 24px;
-    padding: 0;
-    list-style: none;
-  }
-
-  .price-rules li {
-    margin: 4px 0;
-    font-size: 14px;
-    position: relative;
-    padding-left: 12px;
-  }
-
-  .price-rules li::before {
-    content: "•";
-    color: #1e88e5;
-    position: absolute;
-    left: 0;
-  }
-
-  .price-rules strong {
-    color: #000;
-    font-weight: 600;
-  }
-
-  @media (max-width: 600px) {
-    .price-rules {
-      padding: 20px;
-      font-size: 13px;
-    }
-    .price-rules h3 {
-      font-size: 18px;
-    }
-  }
-</style>
-
-<div class="price-rules">
-  <h3>💰 黄金定价规则</h3>
-
-  <p>金镶玉 / 锆：</p>
-  <ul>
-    <li>重量 ≤ 0.5 → <strong>3988</strong></li>
-    <li>0.5 &lt; 重量 ≤ 1.0 → <strong>3288</strong></li>
-    <li>1.0 &lt; 重量 ≤ 2.0 → <strong>2988</strong></li>
-    <li>重量 &gt; 2.0 → <strong>2588</strong></li>
-  </ul>
-
-  <p>足金编绳款（颈绳 / 手绳 / 串珠）：</p>
-  <ul>
-    <li>重量 ≤ 0.5 → <strong>2500</strong></li>
-    <li>0.5 &lt; 重量 ≤ 1.0 → <strong>2200</strong></li>
-    <li>1.0 &lt; 重量 ≤ 2.0 → <strong>2000</strong></li>
-    <li>重量 &gt; 2.0 → <strong>1800</strong></li>
-  </ul>
-
-  <p>足金素金：</p>
-  <ul>
-    <li>重量 ≤ 0.5 → 一口价 <strong>2200</strong></li>
-    <li>0.5 &lt; 重量 ≤ 1.0 → 一口价 <strong>2000</strong></li>
-    <li>1.0 &lt; 重量 ≤ 2.0 → <strong>1800</strong></li>
-    <li>重量 &gt; 2.0 → <strong>1600</strong></li>
-  </ul>
-   <h3>💍银饰定价规则</h3>
-  <p>普通银类：</p>
-  <ul>
-    <li>挂坠 → <strong>588</strong></li>
-    <li>项链 / 套链 → <strong>699</strong></li>
-    <li>戒指 → <strong>588</strong></li>
-    <li>手饰（手绳 / 手链 / 手串） → <strong>599</strong></li>
-    <li>耳饰（耳环 / 耳钉） → <strong>388</strong></li>
-    <li>脚链 → <strong>698</strong></li>
-    <li>发饰（发夹） → <strong>899</strong></li>
-  </ul>
-
-  <p>银手镯类：</p>
-  <ul>
-    <li>1 ≤ 克重 ≤ 15 → <strong>428</strong></li>
-    <li>15 &lt; 克重 ≤ 20 → <strong>568</strong></li>
-    <li>20 &lt; 克重 ≤ 30 → <strong>848</strong></li>
-    <li>30 &lt; 克重 ≤ 100 → <strong>1128</strong></li>
-  </ul>
-
-  <p>银玉石类（翡翠 / 和田玉 / 碧玉 / 玉髓 / 白玉髓）：</p>
-  <ul>
-    <li>挂坠 → <strong>999</strong></li>
-    <li>项链 → <strong>1199</strong></li>
-    <li>手饰（手串 / 手绳） → <strong>1299</strong></li>
-    <li>手链 → <strong>1099</strong></li>
-    <li>戒指 → <strong>1699</strong></li>
-    <li>耳钉 → <strong>1399</strong></li>
-    <li>手镯 → <strong>1399</strong></li>
-  </ul>
-</div>
-
-                        </span>
-                    </div>
-                    
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>【足金成本价】每日早11点更新-根据足金实时金价(当天11点为准)与当前产品的最大克重自动执行成本核算逻辑，输出精准的成本价，计算方法：(克重*金价)+(克重*个别产品分类计算方式不同) 。
-                                <style>
-  .price-rules {
-    font-family: "Microsoft Yahei", sans-serif;
-    color: #333;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 30px auto;
-    background: #fafafa;
-    padding: 28px 36px;
-    border-radius: 16px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-    border-left: 6px solid #1e88e5;
-  }
-
-  .price-rules h3 {
-    font-size: 20px;
-    color: #1e88e5;
-    margin-bottom: 16px;
-    text-align: center;
-    letter-spacing: 1px;
-  }
-
-  .price-rules p {
-    margin-top: 18px;
-    margin-bottom: 6px;
-    font-weight: bold;
-    font-size: 15px;
-    color: #1976d2;
-  }
-
-  .price-rules ul {
-    margin: 0 0 8px 24px;
-    padding: 0;
-    list-style: none;
-  }
-
-  .price-rules li {
-    margin: 4px 0;
-    font-size: 14px;
-    position: relative;
-    padding-left: 12px;
-  }
-
-  .price-rules li::before {
-    content: "•";
-    color: #1e88e5;
-    position: absolute;
-    left: 0;
-  }
-
-  .price-rules strong {
-    color: #000;
-    font-weight: 600;
-  }
-
-  @media (max-width: 600px) {
-    .price-rules {
-      padding: 20px;
-      font-size: 13px;
-    }
-    .price-rules h3 {
-      font-size: 18px;
-    }
-  }
-</style>
-
-<div class="price-rules">
-  <h3>💰 个别产品分类计算</h3>
-  <p>投资金</p>
-  <ul>
-    <li>25</li>
-  </ul>
-  <p>摆件</p>
-  <ul>
-    <li>30</li>
-  </ul>
-  <p>金镶玉/金镶锆</p>
-  <ul>
-    <li>50</li>
-  </ul>
-  <p>SZ082104M-古法-中空</p>
-  <ul>
-    <li>30</li>
-  </ul>
-  <p>其他默认</p>
-  <ul>
-    <li>40</li>
-  </ul>
-</div>
-
-                        </span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>【计算产品工期】每日凌晨0点02分更新-根据7天销量和个别供应商等参数，自动估算并更新ERP安全库存下限，计算公式：(7天销量/7)*供应商天数 。
-                            <style>
-  .price-rules {
-    font-family: "Microsoft Yahei", sans-serif;
-    color: #333;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 30px auto;
-    background: #fafafa;
-    padding: 28px 36px;
-    border-radius: 16px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-    border-left: 6px solid #1e88e5;
-  }
-
-  .price-rules h3 {
-    font-size: 20px;
-    color: #1e88e5;
-    margin-bottom: 16px;
-    text-align: center;
-    letter-spacing: 1px;
-  }
-
-  .price-rules p {
-    margin-top: 18px;
-    margin-bottom: 6px;
-    font-weight: bold;
-    font-size: 15px;
-    color: #1976d2;
-  }
-
-  .price-rules ul {
-    margin: 0 0 8px 24px;
-    padding: 0;
-    list-style: none;
-  }
-
-  .price-rules li {
-    margin: 4px 0;
-    font-size: 14px;
-    position: relative;
-    padding-left: 12px;
-  }
-
-  .price-rules li::before {
-    content: "•";
-    color: #1e88e5;
-    position: absolute;
-    left: 0;
-  }
-
-  .price-rules strong {
-    color: #000;
-    font-weight: 600;
-  }
-
-  @media (max-width: 600px) {
-    .price-rules {
-      padding: 20px;
-      font-size: 13px;
-    }
-    .price-rules h3 {
-      font-size: 18px;
-    }
-  }
-</style>
-
-<div class="price-rules">
-  <h3>💎供应商计算天数</h3>
-  <p>鸿盛</p>
-  <ul>
-    <li>10天</li>
-  </ul>
-  <p>玲小可</p>
-  <ul>
-    <li>20天</li>
-  </ul>
-  <p>潮慕5G</p>
-  <ul>
-    <li>12天</li>
-  </ul>
-  <p>潮慕5D</p>
-  <ul>
-    <li>20天</li>
-  </ul>
-    <p>其他默认</p>
-  <ul>
-    <li>15天</li>
-  </ul>
-  <p>银饰</p>
-  <ul>
-    <li>不计算全部为设置30天</li>
-  </ul>
-</div>
-
-                        </span>
-                    </div>
-                     <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>【配置新款足金铂金最高克重】每日晚上22点更新-从商品资料字段颜色规格，提取最大克重更新ERP重量字段。</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>【检测依据关联】每日晚上21点更新-为商品资料没有检测依据的，关联更新正确的检测依据，确保ERP产品资料完整。</span>
-                    </div>
                 </div>
             </div>
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">ERP 产品缺货提示</div>
+                    <div class="project-title">拼多多金价监控</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
-                        <span class="detail-label">程序版本：W1 </span>
-                        <span>发布时间：2025.9.30</span>
+                        <span class="detail-label">程序版本：W2  </span>
+                        <span>发布时间：2025.10.16</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>RPA + Excel + Python</span>
+                        <span>RPA + Python </span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
@@ -1303,62 +984,57 @@
                 </div>
                 
                 <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益预估：</div>
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 优化：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>导出宇航品牌-中金/中央仓数据根据出货工期进行计算生成2个仓的补货表(每日早上11点推送) ，补货表包含产品编码、圈口/克重、建议补货量等数据同时关联显示产品主图 。
-                            <div class="price-rules">
-  <h3>💎公式原则</h3>   
-
-    <li>可用库存 = 实际可用数 - 售后仓-维修仓 + 30天内采购在途 + 15天内调拨中货品</li>
-    <li>安全库存计算 = 7日日均销量 × 工厂工期</li>
-    <li>建议补货量 = 安全库存 - 可用库存</li>
-</div>
-                        </span>
+                        <span>优化数据爬取速度，效率提升80%,单店铺(1000商品)/5分钟。</span>
                     </div>
+
                 </div>
             </div>
+
+
             <!-- <div class="project">
                 <div class="project-header">
-                    <div class="project-title">唯一码提取自动化流程</div>
-                    <div class="project-status status-ongoing">待进行</div>
+                    <div class="project-title">运营刷单佣金同步胜算</div>
+                    <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
-                        <span class="detail-label">程序待开发</span>
+                        <span class="detail-label">程序版本：W1  </span>
+                        <span>发布时间：2025.10.31</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>RPA + 根据任务评估</span>
+                        <span>RPA + Python </span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
-                        <span>根据任务评估</span>
+                        <span>定时自动执行</span>
                     </div>
                 </div>
                 
                 <div class="progress-container">
                     <div class="progress-info">
                         <span>项目进度</span>
-                        <span>0%</span>
+                        <span>100%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" data-width="0"></div>
+                        <div class="progress-fill" data-width="100"></div>
                     </div>
                 </div>
                 
                 <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益预估：</div>
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 优化：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>需核对程序流程评估</span>
+                        <span>优化数据爬取速度，效率提升80%,单店铺(1000商品)/5分钟。</span>
                     </div>
+
                 </div>
-            </div>
-            
-            
-        </div> -->
+            </div> -->
+           
             
         
         <div class="section" id="issues-section">
