@@ -669,11 +669,11 @@
                     </div>
                     <div class="info-item">
                         <i class="far fa-calendar-alt"></i>
-                        <span>报告周期：2025年10月1日 - 2025年10月31日</span>
+                        <span>报告周期：2025年11月1日 - 2025年11月30日</span>
                     </div>
                     <div class="info-item">
                         <i class="far fa-file-alt"></i>
-                        <span>报告日期：2025年10月31日</span>
+                        <span>报告日期：2025年11月30日</span>
                     </div>
                 </div>
             </div>
@@ -699,9 +699,9 @@
             <!-- <div class="metrics"> -->
                
                 
-                <!-- <div class="metric-card"> -->
-                    <!-- <div class="metric-title">供应链需求</div>
-                    <div class="metric-value">12/12个</div> -->
+                <!-- <div class="metric-card">
+                    <div class="metric-title">胜算需求</div>
+                    <div class="metric-value">5/5个</div> -->
                     <!-- <div class="metric-desc">人工上架一个3~5min，自动化程序上架50个(单SKU)大概耗时50~60min平均1~2min一个</div> -->
                 <!-- </div> -->
 
@@ -735,64 +735,22 @@
                 <h2>主要工作任务进度</h2>
             </div>
             
+            
+            
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">ERP 原材料单价异常维护</div>
+                    <div class="project-title">客服线下打款导入胜算</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：W1  </span>
-                        <span> 发布时间：2025.10.15</span>
+                        <span> 发布时间：2025.11.3</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>RPA+ Excel + Python</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">执行频率：</span>
-                        <span>定时自动执行</span>
-                    </div>
-                </div>
-                
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span>项目进度</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="100"></div>
-                    </div>
-                </div>
-                
-                <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
-                    
-                     <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>针对ERP中的唯一码数据不是固定价格并且原材料单价为空有仓位的异常数据进行反馈（每天早上9点触发）。</span>
-                    </div>
-                   
-                
-                </div>
-                
-            </div>
-            
-            <div class="project">
-                <div class="project-header">
-                    <div class="project-title">ERP 小豪/找金订单取货提醒</div>
-                    <div class="project-status status-completed">100%</div>
-                </div>
-                
-                <div class="project-details">
-                    <div class="detail-item">
-                        <span class="detail-label">程序版本：  W1  </span>
-                        <span>发布时间：2025.10.17</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">技术栈：</span>
-                        <span>RPA + Python</span>
+                        <span>RPA+ Excel </span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
@@ -814,7 +772,29 @@
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>通过ERP系统实时获取新进入的订单数据。捕获关键信息：产品图片、标签、唯一编码、规格、重量、圈口等必要属性，(上午 11:30 下午 16:00 17:00)推送到钉钉群提醒取货。
+                        <span>拉取钉钉宇航差价群最新线下打款数据，提取订单号,打款金额导入聚水潭胜算，（每日凌晨4点20运行）。
+                            <div class="price-rules">
+                            <h3>拉取规则【600209】</h3>
+                            <p>打款功能：</p>
+                            <ul>
+                                <li>
+                            有打款金额且退全款无备注则这个订单拉入胜算，退全款备注“是”则这个订单不拉入胜算
+                                </li>
+                            </ul>
+                            <p>二次打款功能：</p>
+                            <ul>
+                                <li>
+                            通过功能一触发，执行二次打款功能
+                                </li>
+                                <li>
+                            二次打款有更新且退全款没有备注“是”，则将这个二次打款的金额导入订单
+                                </li>
+                                    <li>
+                            有打款金额，且后续更新了二次打款，且退全款备注“是”，把这个订单号发给指定人
+                                </li>
+                            </ul>
+                            
+                            </div>
                         </span>
                     </div>
                    
@@ -824,102 +804,14 @@
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">图片批量上传到天猫素材空间</div>
+                    <div class="project-title">运营每日刷单佣金导入胜算</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本： W1 </span>
-                        <span>发布时间：2025.10.28</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">技术栈：</span>
-                        <span>RPA + Python </span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">执行频率：</span>
-                        <span>按需执行</span>
-                    </div>
-                </div>
-                
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span>项目进度</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="100"></div>
-                    </div>
-                </div>
-                
-                <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>选定包含图片的本地文件夹，多线程并发上传到素材空间，同时自动在空间创建存储的文件夹。</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>上传完成后生成上传报告列出上传成功与失败原因，原耗费至少2小时的人工上传，压缩至30分钟内自动完成。</span>
-                    </div>
-                    
-                    
-                   
-                </div>
-            </div>
-             <div class="project">
-                <div class="project-header">
-                    <div class="project-title">批量下架天猫指定库存数商品</div>
-                    <div class="project-status status-completed">100%</div>
-                </div>
-                
-                <div class="project-details">
-                    <div class="detail-item">
-                        <span class="detail-label">程序版本： W1 </span>
-                        <span>发布时间：2025.10.30</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">技术栈：</span>
-                        <span>RPA + Python </span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">执行频率：</span>
-                        <span>按需执行</span>
-                    </div>
-                </div>
-                
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span>项目进度</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="100"></div>
-                    </div>
-                </div>
-                
-                <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>表格导入一批指定的宝贝ID对于每一个（或每一组）ID，独立设置SKU库存下架条件，检测到某个商品的库存满足其预设条件，触发下架操作。</span>
-                    </div>
-                    
-                   
-                </div>
-            </div>
-            
-            <div class="project">
-                <div class="project-header">
-                    <div class="project-title">ERP 维护Au99.99字段</div>
-                    <div class="project-status status-completed">100%</div>
-                </div>
-                
-                <div class="project-details">
-                    <div class="detail-item">
-                        <span class="detail-label">程序版本：W1  </span>
-                        <span>发布时间：2025.10.18</span>
+                        <span>发布时间：2025.11.10</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
@@ -945,23 +837,65 @@
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>针对ERP中的商品数据缺少Au99.99字段进行维护更新（每天凌晨4点30触发）</span>
+                        <span>在钉钉审批单识别出前3日已审批通过的刷单佣金，提取订单号,导入聚水潭胜算（600208），（凌晨4点30自动运行）。</span>
                     </div>
-                  
-
+                    
+                   
                 </div>
             </div>
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">拼多多金价监控</div>
+                    <div class="project-title">配置税收点</div>
+                    <div class="project-status status-completed">100%</div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序版本： W1 </span>
+                        <span>发布时间：2025.11.18</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>RPA + Python </span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>定时自动执行</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>对ERP 商品资料-贵金属材质存在Au99.99材质，统一配置字段 其它价格4：0.05，其它价格5：0.01（凌晨5点10自动运行）。</span>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">整理京东仓日报</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：W2  </span>
-                        <span>发布时间：2025.10.16</span>
+                        <span>发布时间：2025.11.26</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
@@ -984,58 +918,215 @@
                 </div>
                 
                 <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 优化：</div>
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 流程：</div>
+
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>优化数据爬取速度，效率提升80%,单店铺(1000商品)/5分钟。</span>
-                    </div>
+                        <span>京东仓日报每日早上0点30分更新到钉钉在线表格同时提醒负责人。
 
-                </div>
+                             <style>
+                                    .price-rules {
+                                        font-family: "Microsoft Yahei", sans-serif;
+                                        color: #333;
+                                        line-height: 1.8;
+                                        max-width: 800px;
+                                        margin: 30px auto;
+                                        background: #fafafa;
+                                        padding: 28px 36px;
+                                        border-radius: 16px;
+                                        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+                                        border-left: 6px solid #1e88e5;
+                                    }
+
+                                    .price-rules h3 {
+                                        font-size: 20px;
+                                        color: #1e88e5;
+                                        margin-bottom: 16px;
+                                        text-align: center;
+                                        letter-spacing: 1px;
+                                    }
+
+                                    .price-rules p {
+                                        margin-top: 18px;
+                                        margin-bottom: 6px;
+                                        font-weight: bold;
+                                        font-size: 15px;
+                                        color: #1976d2;
+                                    }
+
+                                    .price-rules ul {
+                                        margin: 0 0 8px 24px;
+                                        padding: 0;
+                                        list-style: none;
+                                    }
+
+                                    .price-rules li {
+                                        margin: 4px 0;
+                                        font-size: 14px;
+                                        position: relative;
+                                        padding-left: 12px;
+                                    }
+
+                                    .price-rules li::before {
+                                        content: "•";
+                                        color: #1e88e5;
+                                        position: absolute;
+                                        left: 0;
+                                    }
+
+                                    .price-rules strong {
+                                        color: #000;
+                                        font-weight: 600;
+                                    }
+
+                                    @media (max-width: 600px) {
+                                        .price-rules {
+                                        padding: 20px;
+                                        font-size: 13px;
+                                        }
+                                        .price-rules h3 {
+                                        font-size: 18px;
+                                        }
+                                    }
+                                </style>
+
+ <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #1a6dcc;">
+        <h4 style="color: #1a6dcc; margin-bottom: 15px; font-size: 1.1rem;">💰 京东仓计算规则</h4>
+        
+        <div style="margin-bottom: 20px;">
+            <strong style="color: #333; display: block; margin-bottom: 10px;">胜算数据提取字段：</strong>
+            <div style="background: white; padding: 12px; border-radius: 5px; margin-bottom: 10px;">
+                店铺名称、店铺编码、线上单号、内部单号、标签、订单销售数据-订单销售数量(扣退)、订单销售数据-订单销售金额(扣退)、退款合计-退款数量合计、发货后退款-发货后退货类型、退款合计-退款金额合计、订单费用-账单费用(自动匹配)、订单费用-人工维护、订单利润-其中：推广费、600207聚工单打款、商品编码、克重、金价、加工费、附加费
             </div>
-
-
-            <!-- <div class="project">
-                <div class="project-header">
-                    <div class="project-title">运营刷单佣金同步胜算</div>
-                    <div class="project-status status-completed">100%</div>
-                </div>
-                
-                <div class="project-details">
-                    <div class="detail-item">
-                        <span class="detail-label">程序版本：W1  </span>
-                        <span>发布时间：2025.10.31</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">技术栈：</span>
-                        <span>RPA + Python </span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">执行频率：</span>
-                        <span>定时自动执行</span>
-                    </div>
-                </div>
-                
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span>项目进度</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="100"></div>
-                    </div>
-                </div>
-                
-                <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 优化：</div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>优化数据爬取速度，效率提升80%,单店铺(1000商品)/5分钟。</span>
-                    </div>
-
-                </div>
-            </div> -->
-           
             
+            <div style="background: white; padding: 12px; border-radius: 5px;">
+                <strong>通过内部订单号获取：</strong> 商品编码、当前订单的最大克重、订单售卖的当日金价、商品编码对应的加工费+附加费
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <strong style="color: #333; display: block; margin-bottom: 10px;">日报字段计算规则：</strong>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #28a745;">
+                <strong>商品销售数量(扣退)：</strong><br>
+                ① 第一优先级：订单销售数据-订单销售数量(扣退)= 0 → 返回 0<br>
+                ② 第二优先级：发货前退款单数+发货后退款单数=0 就返回订单销售数据-订单销售数量(扣退)<br>
+                ③ 第三优先级：发货前退款单数+发货后退款单数=1 就返回订单销售数据-订单销售数量(扣退)在减去发货前退款单数+发货后退款单数<br>
+                ④ 第四优先级：发货前退款单数+发货后退款单数大于 1 就用发货前退款单数+发货后退款单数减去订单销售数据-订单销售数量(扣退)
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>商品销售克重(扣退)：</strong> 商品销售数量(扣退)= 0 → 返回 0，如不等于0→ 返回（ 克重*订单销售数量(扣退））
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>商品销售金额(扣退)：</strong> 商品销售数量(扣退)= 0 → 返回 0，如不等于0→ 返回 订单销售数据-订单销售金额(扣退)
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>工费合计（扣退）：</strong> 商品销售数量(扣退)= 0 → 返回 0，如不等于0→ 返回（加工费+（ 附加费*商品销售数量(扣退)））
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>商品销售成本(扣退)：</strong> 商品销售数量(扣退)= 0 → 返回 0，如不等于0→ 返回（ 商品销售克重(扣退)*当日金价+工费合计（扣退））
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>账单费用：</strong> 订单费用-账单费用(自动匹配)
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>固定费用：</strong> 订单费用-人工维护
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>小额打款：</strong> 600207聚工单打款
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>推广费：</strong> 订单利润-其中：推广费
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>费用合计：</strong> 账单费用+固定费用+小额打款+推广费
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>商品毛利：</strong> 商品销售金额(扣退) 减去 商品销售成本(扣退)
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>商品毛利率：</strong> 商品毛利 / 商品销售金额(扣退)
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>净毛利：</strong> 商品毛利 减去 费用合计
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>净毛利率：</strong> 净毛利 / 商品销售金额(扣退)
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>发货前退款单数：</strong> 对应订单是否存在 发货前售后标签，不存在→ 返回 0，存在→ 返回 1
+            </div>
+            
+            <div style="background: #fff; padding: 10px 15px; margin: 8px 0; border-radius: 5px; border-left: 3px solid #17a2b8;">
+                <strong>发货后退款单数：</strong> 对应订单是否包含其中 发货后取消,发货后售后标签，不存在→ 返回 0，存在→ 返回 1
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <strong style="color: #333; display: block; margin-bottom: 10px;">退款金额计算：</strong>
+            
+            <div style="background: #fff8e1; padding: 10px 15px; margin: 8px 0; border-radius: 5px;">
+                <strong>第一优先级：</strong><br>
+                商品销售金额(扣退)= 0 → 返回 0，如不等于0→ 返回 退款合计-退款金额合计<br>
+                如返回的 退款合计-退款金额合计= 0 → 返回 订单销售数据-订单销售金额(扣退)，如不等于0→ 返回退款合计-退款金额合计
+            </div>
+            
+            <div style="background: #fff8e1; padding: 10px 15px; margin: 8px 0; border-radius: 5px;">
+                <strong>第二优先级：</strong><br>
+                商品销售数量(扣退）=0 → 返回 订单销售金额(扣退)*(发货前退款单数+发货后退款单数)
+            </div>
+            
+            <div style="background: #fff8e1; padding: 10px 15px; margin: 8px 0; border-radius: 5px;">
+                <strong>第三优先级：</strong><br>
+                商品销售数量(扣退）大于0 → 0 退款合计-退款金额合计
+            </div>
+        </div>
+        
+        <div>
+            <strong style="color: #333; display: block; margin-bottom: 10px;">退款成本计算：</strong>
+            
+            <div style="background: #f0f9ff; padding: 10px 15px; margin: 8px 0; border-radius: 5px;">
+                <strong>第一优先级：</strong><br>
+                发货前退款单数   发货后退款单数 任意1项 = 0 → 返回 0
+            </div>
+            
+            <div style="background: #f0f9ff; padding: 10px 15px; margin: 8px 0; border-radius: 5px;">
+                <strong>第二优先级：</strong><br>
+                发货前退款单数   发货后退款单数 任意1项 不等于 0 → 判断（发货前退款单数+发货后退款单数）<br>
+                如 合计不等于 0 →  商品销售成本(扣退)*（发货前退款单数+发货后退款单数）<br>
+                如 合计= 0 → 返回"退款单数为零"
+            </div>
+        </div>
+
+
+         <div>
+            <strong style="color: #d12525; display: block; margin-bottom: 10px;">饰品订单计算差异：</strong>
+            <div style="background: #f0f9ff; padding: 10px 15px; margin: 8px 0; border-radius: 5px;">
+                <strong>商品销售成本(扣退)：</strong><br>
+                商品销售数量(扣退)= 0 → 返回 0，如不等于0 → 返回（单价*商品销售数量（扣退））
+            </div>
+            
+        
+        </div>
+    </div>
+</div>
+
+
+</div>
         
         <div class="section" id="issues-section">
             <div class="section-title">
@@ -1054,9 +1145,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>聚水潭部分核心数据无导出选项</td>
+                        <td>天猫核心数据无导出</td>
                         <td class="priority-high">导致流程无法进行</td>
-                        <td>通过API抓包获取</td>
+                        <td>通过逆向获取</td>
                         
                     </tr>
                     
@@ -1219,3 +1310,5 @@
     </script>
 </body>
 </html>
+
+
