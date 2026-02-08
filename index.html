@@ -669,11 +669,11 @@
                     </div>
                     <div class="info-item">
                         <i class="far fa-calendar-alt"></i>
-                        <span>报告周期：2025年12月1日 - 2025年12月31日</span>
+                        <span>报告周期：2026年01月1日 - 2026年01月31日</span>
                     </div>
                     <div class="info-item">
                         <i class="far fa-file-alt"></i>
-                        <span>报告日期：2025年12月31日</span>
+                        <span>报告日期：2026年01月31日</span>
                     </div>
                 </div>
             </div>
@@ -701,7 +701,7 @@
                 
                 <div class="metric-card">
                     <div class="metric-title">优化应用</div>
-                    <div class="metric-value">5个</div>
+                    <div class="metric-value">4个</div>
                     <!-- <div class="metric-desc">人工上架一个3~5min，自动化程序上架50个(单SKU)大概耗时50~60min平均1~2min一个</div> -->
                 </div>
 
@@ -739,14 +739,14 @@
             
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">入库不含税金额排查</div>
+                    <div class="project-title">禁止同步商品库存查询</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：W1  </span>
-                        <span> 发布时间：2025.12.3</span>
+                        <span> 发布时间：2026.1.6</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
@@ -772,20 +772,27 @@
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>查询每个入库单，排查不含税金额有误的入库单（每日8点50运行）。
+                        <span>防止禁止同步的商品库存为0时店铺依旧出售导致卖超（每日4点30运行）。
+                            <a href="https://www.kdocs.cn/l/ciAl33Qp8jBv" target="_blank" rel="noopener noreferrer" title="访问示例网站（将在新窗口打开）">详细点击打开需求表格查看</a>
                             <div class="price-rules">
-                            <h3>【核对规则】</h3>
+                            <h3>【查询规则】</h3>
                             
                             <!-- <p>二次打款功能：</p> -->
                             <ul>
                                 <li>
-                                    采购入库：（入库明细-不含税金额、唯一码明细-不含税金额）
+                                    .计算库存数=实际可用库存-新售后仓-新废品仓-质检仓+15天调拨
                                 </li>
                                 <li>
-                                    上面两者有差异则提取出来报错通知负责人（如唯一码明细无数据则跳过）
+                                    .系统库存为0的商品，计算到货日期：
+                                    30天内采购在途中的最早日期 +20天（银饰/足金）或15天（3D、5D、微硬金）
                                 </li>
                                 <li>
-                                    当日有待入库单不做排查，记录入库单号追踪，等入库单已入库后进行排查
+                                    需求效果：
+                                    <img 
+                                    src="https://winrobot-pub-a.oss-cn-hangzhou.aliyuncs.com/images/0b/b8/9e2934b50553a41101a82324fd39.png" 
+                                    alt="图片描述"
+                                    width="700" 
+                                    height="837">
                                 </li>
                             </ul>
                             
@@ -799,14 +806,14 @@
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">天猫下载宝贝原图</div>
+                    <div class="project-title">已入库商品重量与总质量筛查</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本： W1 </span>
-                        <span>发布时间：2025.12.20</span>
+                        <span>发布时间：2026.1.20</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
@@ -827,8 +834,32 @@
                         <div class="progress-fill" data-width="100"></div>
                     </div>
                 </div>
+
+                <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>筛查总质量与重量问题（每日4点50运行）。
+                            <a href="https://www.kdocs.cn/l/cdGnh7vKAjX0" target="_blank" rel="noopener noreferrer" title="访问示例网站（将在新窗口打开）">详细点击打开需求表格查看</a>
+                            <div class="price-rules">
+                            <h3>【规则】</h3>
+                            
+                            <!-- <p>二次打款功能：</p> -->
+                            <ul>
+                                <li>
+                                    .聚水潭——采购入库，查看每条入库单其唯一码明细，筛选足金商品
+                                </li>
+                                <li>
+                                    .2.抓取重量与总质量（标称）两个数据，进行对比
+                                    如有重量＞总质量（标称）的情况，提取出来
+                                    *如总质量（标称）一列为空，则无需对比，跳过
+                                </li>
+
+                            </ul>
+                            
+                            </div>
+                        </span>
+                    </div>
                 
-                <div class="benefits">
+                <!-- <div class="benefits">
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
@@ -836,27 +867,27 @@
                     </div>
                     
                    
-                </div>
+                </div> -->
             </div>
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">AI选品多维表</div>
+                    <div class="project-title">商品资料-自动上传尺寸图</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本： W1 </span>
-                        <span>发布时间：2025.12.5</span>
+                        <span>发布时间：2026.1.22</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span> 钉钉多维表 </span>
+                        <span> RPA </span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
-                        <span> 托管执行</span>
+                        <span> 按需执行</span>
                     </div>
                 </div>
                 
@@ -874,7 +905,7 @@
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 操作指引：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>陈峰钉钉表格需求。</span>
+                        <span>用于更新库存产品图片防止错误，温宝琴需求。</span>
                        <a href="https://www.kdocs.cn/l/crMDe8HHigEp" target="_blank" rel="noopener noreferrer" title="访问示例网站（将在新窗口打开）">点击打开表格操作指引</a>
                     </div>
                     
@@ -884,14 +915,14 @@
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">已入库商品重量与总质量筛查</div>
+                    <div class="project-title">找金产品批量更换首图</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本： W1 </span>
-                        <span>发布时间：2025.12.29</span>
+                        <span>发布时间：2026.1.29</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
@@ -899,7 +930,7 @@
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
-                        <span>按需自动执行</span>
+                        <span>自动执行</span>
                     </div>
                 </div>
                 
@@ -916,22 +947,17 @@
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>筛查采购入库总质量与重量问题（每日8:55运行）。
-                            <a href="https://www.kdocs.cn/l/cdGnh7vKAjX0" target="_blank" rel="noopener noreferrer" title="访问示例网站（将在新窗口打开）">详细点击打开需求表格查看</a>
+                        <span>用于找金尺寸便捷查询（每日05:00运行）。
+                            <a href="https://www.kdocs.cn/l/ceDXZN3b7aQB" target="_blank" rel="noopener noreferrer" title="访问示例网站（将在新窗口打开）">详细点击打开需求表格查看</a>
                             <div class="price-rules">
-                            <h3>【核对规则】</h3>
+                            <h3>【规则】</h3>
                             
                             <!-- <p>二次打款功能：</p> -->
                             <ul>
                                 <li>
-                                    1.聚水潭——采购入库，查看每条入库单其唯一码明细，筛选足金商品
+                                   更新范围：(可选日期范围)，取商品多店铺找金款号下最后一张图，更新商品资料款式号下所有关联的编码首图
                                 </li>
-                                <li>
-                                    2.抓取重量与总质量（标称）两个数据，进行对比
-                                </li>
-                                <li>
-                                    如有重量＞总质量（标称）的情况，提取出来，如总质量（标称）一列为空，则无需对比，跳过
-                                </li>
+
                                 <!-- <li>
                                     需求效果：<img src="https://img.cdn1.vip/i/695f16abc9dd2_1767839403.webp" alt="图片描述">
                                 </li> -->
@@ -953,14 +979,14 @@
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">天猫优惠券通知客服</div>
+                    <div class="project-title">聚水潭，找金银饰自动建立采购单</div>
                     <div class="project-status status-completed">100%</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本： W1 </span>
-                        <span>发布时间：2025.12.24</span>
+                        <span>发布时间：2026.01.15</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
@@ -985,28 +1011,48 @@
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益分析：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>查询每个天猫店铺的活动通知到客服（每日8:55运行）。
+                        <span>自动增添小豪/找金的采购单管理手工下单并推送到钉钉群（每日11:30、16:00、17:00运行）。
                             <a href="https://www.kdocs.cn/l/cchLyJJ5tGoY" target="_blank" rel="noopener noreferrer" title="访问示例网站（将在新窗口打开）">详细点击打开需求表格查看</a>
                             <div class="price-rules">
-                            <h3>【通知规则】</h3>
-                            
-                            <!-- <p>二次打款功能：</p> -->
-                            <ul>
-                                <li>
-                                    1.当活动状态持续为领取中，每天通知一次
-                                </li>
-                                <li>
-                                   2.如果当天查询活动字段为已结束/已领完，仅当天需要通知 
-                                </li>
-                                <li>
-                                   3.当活动结束后，又重新开始，虽仍正常显示领取中，但我们需将开始第一天发送完整通知及详情介绍
-                                </li>
-                                <li>
-                                    需求效果：<img src="https://winrobot-pub-a.oss-cn-hangzhou.aliyuncs.com/images/6e/be/f9363bbafb6ad252476263d1003a.gif" alt="图片描述">
-                                </li>
-                            </ul>
-                            
+                                <h3>【规则】</h3>
+                                <p>聚水潭订单：</p>
+                                <ul>
+                                    <li>
+                                        根据订单对应商品编码生成入库单，同商品编码会下在一个采购单
+                                    </li>
+                                    <li>
+                                        识别到中国黄金店铺出货备注：打中金logo，中金仓
+                                        识别到除了中国黄金以外的店铺出货备注：中珠仓
+                                    </li>
+                                </ul>
+                                
+                                <p>找金银饰订单：</p>
+                                <ul>
+                                    <li>
+                                        在商品基础资料款式编码中搜索这个找金款号
+                                        聚水潭圈口：56#
+                                        聚水潭克重区间：21.90g-29.91g
+
+                                        找金规格：56#
+                                        找金配货克重：23.35g
+                                        找金配货克重在这个聚水潭的条码区间内，可匹配规格的商品编码来生成入库单
+                                    </li>
+                                    <li>
+                                        同一个款号多种编码情况，统一匹配对应规格与克重区间，无圈口款式只需要去找到对应的克重区间，同商品编码会下在一个采购单
+                                    </li>
+                                    
+                                </ul>
+                                <p>特殊情况：</p>
+                                <ul>
+                                    <li>
+                                        对应的商品编码名称存在同款(商品编码/款式编码)，使用这个编码进行下单
+                                    </li> 
+                                </ul>
+                                <p>需求效果：</p>
+                                <img src="https://winrobot-pub-a.oss-cn-hangzhou.aliyuncs.com/images/cd/35/4c190a3d12253d260afc2d2215d3.gif" alt="图片描述">
+
                             </div>
+                            
                         </span>
                     </div>
                    
@@ -1015,7 +1061,7 @@
             </div>
 
 
-            <div class="project">
+            <!-- <div class="project">
                 <div class="project-header">
                     <div class="project-title">商品运营流量及库存数据</div>
                     <div class="project-status status-completed">100%</div>
@@ -1071,14 +1117,7 @@
                                     0.5g以上的按照每0.2区间划分。
                                 </li>
 
-                                <!-- <li>
-                                    需求效果：
-                                    <img 
-                                    src="https://img.cdn1.vip/i/695f46713af04_1767851633.webp" 
-                                    alt="图片描述"
-                                    width="700" 
-                                    height="400">
-                                </li> -->
+
                                 <li>
                                     需求效果：
                                     <img 
@@ -1095,7 +1134,7 @@
                    
 
                 </div>
-            </div>
+            </div> -->
 
 
 
@@ -1186,9 +1225,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>天猫核心数据无导出</td>
-                        <td class="priority-high">导致流程无法进行</td>
-                        <td>通过逆向获取</td>
+                        <td>WPS在线表格写入慢</td>
+                        <td class="priority-high">导致流程运行时长增加</td>
+                        <td>开发写入API专用库</td>
                         
                     </tr>
                     
@@ -1351,5 +1390,4 @@
     </script>
 </body>
 </html>
-
 
